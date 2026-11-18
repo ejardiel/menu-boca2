@@ -3,10 +3,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
   <title>Boca2 | Menú</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -15,211 +19,298 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    /* CABECERA */
+
     header {
       display: flex;
       align-items: center;
-      gap: 22px;
-      padding: 8px 14px;
+      gap: 18px;
+      padding: 14px;
       background: #1c1c1c;
       color: white;
       border-bottom: 3px solid red;
     }
 
     header img {
-      width: 98px;
-      height: 72px;
+      width: 110px;
+      height: 100px;
       object-fit: contain;
+      flex-shrink: 0;
     }
 
     .slogan {
       color: #ffce00;
-      font-size: 10px;
+      font-size: 13px;
       font-weight: bold;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(32px, 9vw, 46px);
+      margin: 5px 0;
+      font-size: clamp(36px, 9vw, 52px);
       line-height: 1;
     }
 
+    /* CONTENIDO */
+
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 8px 9px 30px;
+      padding: 16px 12px 40px;
     }
 
     .category {
-      margin: 12px 0;
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 11px;
+      gap: 9px;
+      margin: 25px 0 15px;
+      font-size: 20px;
       font-weight: bold;
     }
 
     .category::before {
       content: "";
-      width: 3px;
-      height: 13px;
+      width: 5px;
+      height: 23px;
       background: #ffad00;
+      border-radius: 3px;
     }
+
+    /* PRODUCTOS */
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 7px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .product {
-      min-height: 94px;
-      padding: 10px;
       background: white;
-      border: 1px solid #222;
-      border-radius: 17px;
-      display: flex;
-      flex-direction: column;
+      border: 1px solid #333;
+      border-radius: 16px;
+      overflow: hidden;
     }
 
-    .product::before {
-      content: "";
-      width: 17px;
-      height: 2px;
-      background: #ffad00;
-      margin-bottom: 9px;
+    .product summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 21px 16px;
+      cursor: pointer;
+      list-style: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .product summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .product summary::after {
+      content: "⌄";
+      font-size: 25px;
+      color: #555;
+      line-height: 1;
+    }
+
+    .product[open] summary::after {
+      content: "⌃";
     }
 
     .product h2 {
-      margin: 0 0 4px;
-      font-size: 12px;
-    }
-
-    .description {
-      color: #999;
-      font-size: 7px;
-      line-height: 1.4;
       flex: 1;
+      min-width: 0;
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.3;
     }
 
     .price {
-      margin-top: 8px;
-      color: #f5a900;
-      font-size: 15px;
+      color: #e5a000;
+      font-size: 22px;
       font-weight: bold;
+      white-space: nowrap;
     }
 
-    .wide {
-      grid-column: 1 / -1;
-      min-height: 80px;
+    .description {
+      padding: 0 16px 20px;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     .tag {
-      padding: 5px;
-      border-radius: 5px;
+      margin: 0 16px 18px;
+      padding: 12px;
+      border-radius: 8px;
       background: #ffdbb8;
-      font-size: 7px;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .tag strong {
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
     }
 
-  @media (max-width: 699px) {
+    /* PANTALLAS GRANDES */
+
+    @media (min-width: 700px) {
+      header {
+        justify-content: center;
+      }
+
       .grid {
-          grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-  
-      .product {
-          width: 100%;
+
+      .product.wide {
+        grid-column: 1 / -1;
       }
-  }
+
+      .product h2 {
+        font-size: 21px;
+      }
+
+      .category {
+        font-size: 23px;
+      }
+    }
+
+    /* TELÉFONOS PEQUEÑOS */
+
+    @media (max-width: 380px) {
+      header img {
+        width: 85px;
+        height: 85px;
+      }
+
+      header {
+        gap: 10px;
+      }
+
+      .slogan {
+        font-size: 11px;
+      }
+
+      .product h2 {
+        font-size: 17px;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <img src="logo.png" alt="Boca2 Food Truck">
-  <div>
-    <div class="slogan">PIDE Y DISFRUTA</div>
-    <h1>MENÚ</h1>
-    <div class="slogan">HAMBURGUESAS Y PANES</div>
-  </div>
-</header>
+  <header>
+    <img src="logo.png" alt="Boca2 Food Truck">
 
-<main>
-  <div class="category">HAMBURGUESAS</div>
-
-  <section class="grid">
-    <article class="product">
-      <h2>Hamburguesa Clásica</h2>
-      <div class="description">
-        Carne, Queso, Tomate, Cebolla,
-        Salsa burguer de la casa
+    <div>
+      <div class="slogan">PIDE Y DISFRUTA</div>
+      <h1>MENÚ</h1>
+      <div class="slogan">
+        HAMBURGUESAS Y PANES
       </div>
-      <div class="price">830</div>
-    </article>
+    </div>
+  </header>
 
-    <article class="product">
-      <h2>BBQ Bacon</h2>
-      <div class="description">
-        Carne, Queso, Bacon, Cebolla
-        Caramelizada, Salsa BBQ
-      </div>
-      <div class="price">830</div>
-    </article>
+  <main>
 
-    <article class="product">
-      <h2>Huevo y Bacon</h2>
-      <div class="description">
-        Carne, Queso, Bacon, Huevo Frito,
-        Salsa burguer de la casa
-      </div>
-      <div class="price">830</div>
-    </article>
+    <div class="category">HAMBURGUESAS</div>
 
-    <article class="product">
-      <h2>La Brutal</h2>
-      <div class="description">
-        Doble carne, Doble queso, Bacon,
-        Tomate, Cebolla caramelizada,
-        Salsa burguer de la casa
-      </div>
-      <div class="price">830</div>
-    </article>
+    <section class="grid">
 
-    <article class="product wide">
-      <h2>Hamburguesa Cubana</h2>
-      <div class="description">
-        Carne, Queso, Jamón, Cerdo Asado,
-        Salsa de ajo y naranja agria
-      </div>
-      <div class="price">830</div>
-    </article>
-  </section>
+      <details class="product">
+        <summary>
+          <h2>Hamburguesa Clásica</h2>
+          <span class="price">830</span>
+        </summary>
+        <div class="description">
+          Carne, Queso, Tomate, Cebolla,
+          Salsa burguer de la casa
+        </div>
+      </details>
 
-  <div class="category">PANES DE LA CASA</div>
+      <details class="product">
+        <summary>
+          <h2>BBQ Bacon</h2>
+          <span class="price">830</span>
+        </summary>
+        <div class="description">
+          Carne, Queso, Bacon, Cebolla
+          Caramelizada, Salsa BBQ
+        </div>
+      </details>
 
-  <section class="grid">
-    <article class="product">
-      <h2>Pan con Tortilla</h2>
-      <div class="tag">
-        <strong>AGREGOS</strong>
-        Jamón · Queso · Vegetales
-      </div>
-      <div class="price">830</div>
-    </article>
+      <details class="product">
+        <summary>
+          <h2>Huevo y Bacon</h2>
+          <span class="price">830</span>
+        </summary>
+        <div class="description">
+          Carne, Queso, Bacon, Huevo Frito,
+          Salsa burguer de la casa
+        </div>
+      </details>
 
-    <article class="product">
-      <h2>Pan con Lechón</h2>
-      <div class="description">
-        Carne de cerdo asada, vegetales,
-        mojito de la casa
-      </div>
-      <div class="price">830</div>
-    </article>
-  </section>
-</main>
+      <details class="product">
+        <summary>
+          <h2>La Brutal</h2>
+          <span class="price">830</span>
+        </summary>
+        <div class="description">
+          Doble carne, Doble queso, Bacon,
+          Tomate, Cebolla caramelizada,
+          Salsa burguer de la casa
+        </div>
+      </details>
+
+      <details class="product wide">
+        <summary>
+          <h2>Hamburguesa Cubana</h2>
+          <span class="price">830</span>
+        </summary>
+        <div class="description">
+          Carne, Queso, Jamón, Cerdo Asado,
+          Salsa de ajo y naranja agria
+        </div>
+      </details>
+
+    </section>
+
+    <div class="category">PANES DE LA CASA</div>
+
+    <section class="grid">
+
+      <details class="product">
+        <summary>
+          <h2>Pan con Tortilla</h2>
+          <span class="price">830</span>
+        </summary>
+
+        <div class="tag">
+          <strong>AGREGOS</strong>
+          Jamón · Queso · Vegetales
+        </div>
+      </details>
+
+      <details class="product">
+        <summary>
+          <h2>Pan con Lechón</h2>
+          <span class="price">830</span>
+        </summary>
+
+        <div class="description">
+          Carne de cerdo asada, vegetales,
+          mojito de la casa
+        </div>
+      </details>
+
+    </section>
+
+  </main>
 
 </body>
 </html>
