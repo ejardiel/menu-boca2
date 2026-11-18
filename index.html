@@ -125,13 +125,15 @@
       margin-bottom: 3px;
     }
 
-    @media (min-width: 700px) {
-      .product h2 { font-size: 17px; }
-      .description, .tag { font-size: 12px; }
-      .price { font-size: 19px; }
-      .category { font-size: 15px; }
-      .product { min-height: 135px; }
-    }
+  @media (max-width: 699px) {
+      .grid {
+          grid-template-columns: 1fr;
+      }
+  
+      .product {
+          width: 100%;
+      }
+  }
   </style>
 </head>
 <body>
