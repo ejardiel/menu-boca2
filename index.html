@@ -385,6 +385,31 @@
       line-height: 1.65;
     }
 
+    /* SEPARADOR INGREDIENTES / AGREGOS */
+
+    .detail-separator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .detail-separator::before,
+    .detail-separator::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e6c47d;
+    }
+
+    .detail-separator span {
+      width: 9px;
+      height: 9px;
+      background: #d7a34c;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
     /* PIE */
 
     .end-mark {
@@ -693,6 +718,12 @@
                 Tortilla de 1 huevo
               </p>
             </div>
+
+            <div class="detail-separator"
+                 aria-hidden="true">
+              <span></span>
+            </div>
+
             <span class="ingredients-label">
               AGREGOS
             </span>
