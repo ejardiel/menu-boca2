@@ -1,14 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description"
-        content="Carta digital de Boca2 Food Truck">
+  <meta name="description" content="Carta digital de Boca2 Food Truck">
   <title>Boca2 | Nuestra carta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -19,6 +20,8 @@
       --text: #242424;
       --muted: #77736d;
       --line: #e9e4db;
+      --display: "Alfa Slab One", Rockwell, "Rockwell Extra Bold", "Arial Black", Georgia, serif;
+      --body: "DM Sans", Arial, Helvetica, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -32,7 +35,7 @@
       margin: 0;
       background: var(--paper);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--body);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -41,9 +44,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(
-        145deg, #101010, #292723
-      );
+      background: linear-gradient(145deg, #101010, #292723);
       color: white;
       text-align: center;
       padding: 28px 18px 30px;
@@ -68,30 +69,34 @@
       height: 105px;
       object-fit: contain;
       margin: 0 auto 12px;
-      filter: drop-shadow(
-        0 5px 12px rgba(0,0,0,.25)
-      );
+      filter: drop-shadow(0 5px 12px rgba(0,0,0,.25));
     }
 
     .eyebrow {
       color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .hero h1 {
       margin: 8px 0;
-      font-size: clamp(42px, 11vw, 64px);
-      letter-spacing: 5px;
-      line-height: 1.1;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(52px, 15vw, 84px);
+      letter-spacing: 3px;
+      line-height: 1.05;
+      color: var(--gold-light);
+      text-shadow: 3px 3px 0 var(--gold), 6px 6px 0 rgba(228,165,29,.28);
     }
 
     .hero-subtitle {
       margin: 0;
       color: #d4d0c9;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
@@ -133,10 +138,10 @@
       color: var(--text);
       text-decoration: none;
       text-align: center;
-      font-size: 13px;
-      font-weight: 800;
-      transition: background .2s, color .2s,
-                  border-color .2s;
+      font-family: var(--display);
+      font-size: 14px;
+      letter-spacing: .3px;
+      transition: background .2s, color .2s, border-color .2s;
     }
 
     .nav a:active {
@@ -159,21 +164,23 @@
 
     .intro-label {
       color: #a47721;
-      font-size: 11px;
-      font-weight: 800;
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 2px;
     }
 
     .intro h2 {
       margin: 9px 0;
-      font-size: 25px;
-      letter-spacing: -.5px;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: .3px;
     }
 
     .intro p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.5;
     }
 
@@ -186,16 +193,16 @@
 
     .category-number {
       color: #b18b45;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-family: var(--display);
+      font-size: 14px;
     }
 
     .category h2 {
       margin: 0;
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: -.4px;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 25px;
+      letter-spacing: .3px;
     }
 
     .category::after {
@@ -219,27 +226,14 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 4px 16px rgba(0,0,0,.045);
-      transition: border-color .25s,
-                  box-shadow .25s,
-                  transform .25s;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
       animation: rise .45s ease both;
     }
 
-    .product:nth-child(2) {
-      animation-delay: .06s;
-    }
-
-    .product:nth-child(3) {
-      animation-delay: .12s;
-    }
-
-    .product:nth-child(4) {
-      animation-delay: .18s;
-    }
-
-    .product:nth-child(5) {
-      animation-delay: .24s;
-    }
+    .product:nth-child(2) { animation-delay: .06s; }
+    .product:nth-child(3) { animation-delay: .12s; }
+    .product:nth-child(4) { animation-delay: .18s; }
+    .product:nth-child(5) { animation-delay: .24s; }
 
     .product[open] {
       border-color: #e6c47d;
@@ -256,9 +250,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .product summary::-webkit-details-marker {
-      display: none;
-    }
+    .product summary::-webkit-details-marker { display: none; }
 
     .product summary:focus-visible {
       outline: 3px solid var(--gold);
@@ -272,18 +264,49 @@
 
     .product-name h3 {
       margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
       font-size: 19px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -.3px;
+      line-height: 1.25;
+      letter-spacing: .2px;
     }
 
+    /* PRECIO (etiqueta) */
+
     .price {
-      color: #ad7410;
-      font-size: 22px;
-      font-weight: 900;
+      position: relative;
+      padding: 7px 14px 7px 25px;
+      background: var(--dark);
+      color: var(--gold);
+      font-family: var(--display);
+      font-size: 19px;
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
+      border-radius: 5px 999px 999px 5px;
+      box-shadow: 0 3px 9px rgba(0,0,0,.18);
+      transition: background .3s, color .3s;
+    }
+
+    .price::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      margin-top: -3.5px;
+      border-radius: 50%;
+      background: var(--paper);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.45);
+    }
+
+    .product[open] .price {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .product[open] .price::before {
+      background: var(--gold-light);
     }
 
     /* HAMBURGUESA ANIMADA */
@@ -301,9 +324,7 @@
       position: absolute;
       left: 2px;
       width: 33px;
-      transition: transform .35s cubic-bezier(
-        .2, .8, .2, 1
-      );
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1);
     }
 
     .burger-top {
@@ -342,17 +363,9 @@
       border: 1px solid #c7852e;
     }
 
-    .product[open] .burger-top {
-      transform: translateY(-6px) rotate(-8deg);
-    }
-
-    .product[open] .burger-fill {
-      transform: translateY(1px);
-    }
-
-    .product[open] .burger-bottom {
-      transform: translateY(5px);
-    }
+    .product[open] .burger-top { transform: translateY(-6px) rotate(-8deg); }
+    .product[open] .burger-fill { transform: translateY(1px); }
+    .product[open] .burger-bottom { transform: translateY(5px); }
 
     /* INGREDIENTES */
 
@@ -373,9 +386,9 @@
       display: block;
       margin-bottom: 7px;
       color: #a47721;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.7px;
+      font-family: var(--display);
+      font-size: 12px;
+      letter-spacing: 1.5px;
     }
 
     .description {
@@ -437,32 +450,20 @@
       padding: 0 15px 24px;
       text-align: center;
       color: #a6a19a;
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: .3px;
     }
 
     /* ANIMACIONES */
 
     @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes reveal {
-      from {
-        opacity: 0;
-        transform: translateY(-7px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-7px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (hover: hover) {
@@ -479,30 +480,18 @@
     }
 
     @media (min-width: 700px) {
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .product.wide {
-        grid-column: 1 / -1;
-      }
-
-      .product-name h3 {
-        font-size: 21px;
-      }
-
-      .category h2 {
-        font-size: 24px;
-      }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product.wide { grid-column: 1 / -1; }
+      .product-name h3 { font-size: 21px; }
+      .category h2 { font-size: 28px; }
     }
 
     @media (max-width: 380px) {
-      .product-name h3 {
-        font-size: 17px;
-      }
+      .product-name h3 { font-size: 16px; }
 
       .price {
-        font-size: 20px;
+        font-size: 17px;
+        padding: 6px 11px 6px 22px;
       }
 
       .burger {
@@ -531,16 +520,13 @@
     <img src="logo.png" alt="Boca2 Food Truck">
     <div class="eyebrow">Pide y disfruta</div>
     <h1>MENÚ</h1>
-    <p class="hero-subtitle">
-      Hamburguesas &amp; Panes
-    </p>
+    <p class="hero-subtitle">Hamburguesas &amp; Panes</p>
     <div class="hero-rule"></div>
   </header>
 
   <!-- NAVEGACION ENTRE CATEGORIAS -->
 
-  <nav class="nav-wrap"
-       aria-label="Categorías del menú">
+  <nav class="nav-wrap" aria-label="Categorías del menú">
     <div class="nav">
       <a href="#hamburguesas">Hamburguesas</a>
       <a href="#panes">Panes de la casa</a>
@@ -552,10 +538,7 @@
     <div class="intro">
       <div class="intro-label">BOCA2 FOOD TRUCK</div>
       <h2>Nuestra carta</h2>
-      <p>
-        Toca cada producto para descubrir
-        sus ingredientes.
-      </p>
+      <p>Toca cada producto para descubrir sus ingredientes.</p>
     </div>
 
     <!-- HAMBURGUESAS -->
@@ -570,9 +553,7 @@
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>Hamburguesa Clásica</h3>
-            </div>
+            <div class="product-name"><h3>Hamburguesa Clásica</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -581,21 +562,14 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Carne, Queso, Tomate, Cebolla,
-              Salsa burguer de la casa
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Carne, Queso, Tomate, Cebolla, Salsa burguer de la casa</p>
           </div>
         </details>
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>BBQ Bacon</h3>
-            </div>
+            <div class="product-name"><h3>BBQ Bacon</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -604,21 +578,14 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Carne, Queso, Bacon,
-              Cebolla Caramelizada, Salsa BBQ
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Carne, Queso, Bacon, Cebolla Caramelizada, Salsa BBQ</p>
           </div>
         </details>
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>Huevo y Bacon</h3>
-            </div>
+            <div class="product-name"><h3>Huevo y Bacon</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -627,21 +594,14 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Carne, Queso, Bacon, Huevo Frito,
-              Salsa burguer de la casa
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Carne, Queso, Bacon, Huevo Frito, Salsa burguer de la casa</p>
           </div>
         </details>
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>La Brutal</h3>
-            </div>
+            <div class="product-name"><h3>La Brutal</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -650,22 +610,14 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Doble carne, Doble queso, Bacon,
-              Tomate, Cebolla caramelizada,
-              Salsa burguer de la casa
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Doble carne, Doble queso, Bacon, Tomate, Cebolla caramelizada, Salsa burguer de la casa</p>
           </div>
         </details>
 
         <details class="product wide">
           <summary>
-            <div class="product-name">
-              <h3>Hamburguesa Cubana</h3>
-            </div>
+            <div class="product-name"><h3>Hamburguesa Cubana</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -674,13 +626,8 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Carne, Queso, Jamón, Cerdo Asado,
-              Salsa de ajo y naranja agria
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Carne, Queso, Jamón, Cerdo Asado, Salsa de ajo y naranja agria</p>
           </div>
         </details>
 
@@ -699,9 +646,7 @@
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>Pan con Tortilla</h3>
-            </div>
+            <div class="product-name"><h3>Pan con Tortilla</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -711,33 +656,20 @@
           </summary>
           <div class="product-body">
             <div>
-              <span class="ingredients-label">
-                INGREDIENTES
-              </span>
-              <p class="description">
-                Tortilla de 2 huevo
-              </p>
+              <span class="ingredients-label">INGREDIENTES</span>
+              <p class="description">Tortilla de 2 huevo</p>
             </div>
 
-            <div class="detail-separator"
-                 aria-hidden="true">
-              <span></span>
-            </div>
+            <div class="detail-separator" aria-hidden="true"><span></span></div>
 
-            <span class="ingredients-label">
-              AGREGOS
-            </span>
-            <p class="description">
-              Jamón · Queso · Vegetales
-            </p>
+            <span class="ingredients-label">AGREGOS</span>
+            <p class="description">Jamón · Queso · Vegetales</p>
           </div>
         </details>
 
         <details class="product">
           <summary>
-            <div class="product-name">
-              <h3>Pan con Lechón</h3>
-            </div>
+            <div class="product-name"><h3>Pan con Lechón</h3></div>
             <span class="price">830</span>
             <span class="burger" aria-hidden="true">
               <span class="burger-top"></span>
@@ -746,28 +678,19 @@
             </span>
           </summary>
           <div class="product-body">
-            <span class="ingredients-label">
-              INGREDIENTES
-            </span>
-            <p class="description">
-              Carne de cerdo asada, vegetales,
-              mojito de la casa
-            </p>
+            <span class="ingredients-label">INGREDIENTES</span>
+            <p class="description">Carne de cerdo asada, vegetales, mojito de la casa</p>
           </div>
         </details>
 
       </div>
     </section>
 
-    <div class="end-mark" aria-hidden="true">
-      <span>✦</span>
-    </div>
+    <div class="end-mark" aria-hidden="true"><span>✦</span></div>
 
   </main>
 
-  <footer>
-    Desarrollado por ejardiel
-  </footer>
+  <footer>Desarrollado por ejardiel</footer>
 
 </body>
 </html>
