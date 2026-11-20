@@ -135,7 +135,7 @@
     .nav a {
       flex: 1;
       display: block;
-      padding: 12px 8px;
+      padding: 12px 6px;
       border: 1px solid var(--line);
       border-radius: 12px;
       background: #fff;
@@ -488,6 +488,34 @@
       flex-shrink: 0;
     }
 
+    /* BEBIDAS (tarjetas fijas, sin desplegar) */
+
+    .drink-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      column-gap: 11px;
+      row-gap: 9px;
+      padding: 19px 16px;
+    }
+
+    .drink-icon {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: 34px;
+      height: 34px;
+      fill: none;
+      stroke: #c98f12;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .product.drink:hover {
+      transform: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.045);
+    }
+
     /* PIE */
 
     .end-mark {
@@ -642,7 +670,7 @@
     <div class="eyebrow">Pide y disfruta</div>
     <h1>MENÚ</h1>
     <p class="hero-subtitle">
-      Hamburguesas &amp; Panes
+      Hamburguesas, Panes &amp; Bebidas
     </p>
     <div class="hero-rule"></div>
   </header>
@@ -653,7 +681,8 @@
        aria-label="Categorías del menú">
     <div class="nav">
       <a href="#hamburguesas">Hamburguesas</a>
-      <a href="#panes">Panes de la casa</a>
+      <a href="#panes">Panes</a>
+      <a href="#bebidas">Bebidas</a>
     </div>
   </nav>
 
@@ -865,6 +894,67 @@
             </p>
           </div>
         </details>
+
+      </div>
+    </section>
+
+    <!-- BEBIDAS -->
+
+    <section id="bebidas">
+      <div class="category">
+        <span class="category-number">03</span>
+        <h2>Bebidas</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="product drink">
+          <div class="drink-row">
+            <div class="product-name">
+              <h3>Refresco</h3>
+            </div>
+            <span class="price">000</span>
+            <svg class="drink-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 8h14M6 8l1.4 12a2 2 0 0 0 2 1.8h5.2a2 2 0 0 0 2-1.8L18 8M13 8l1.5-5H18"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="product drink">
+          <div class="drink-row">
+            <div class="product-name">
+              <h3>Agua</h3>
+            </div>
+            <span class="price">000</span>
+            <svg class="drink-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 8h14M6 8l1.4 12a2 2 0 0 0 2 1.8h5.2a2 2 0 0 0 2-1.8L18 8M13 8l1.5-5H18"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="product drink">
+          <div class="drink-row">
+            <div class="product-name">
+              <h3>Jugo natural</h3>
+            </div>
+            <span class="price">000</span>
+            <svg class="drink-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 8h14M6 8l1.4 12a2 2 0 0 0 2 1.8h5.2a2 2 0 0 0 2-1.8L18 8M13 8l1.5-5H18"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="product drink">
+          <div class="drink-row">
+            <div class="product-name">
+              <h3>Café</h3>
+            </div>
+            <span class="price">000</span>
+            <svg class="drink-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 8h14M6 8l1.4 12a2 2 0 0 0 2 1.8h5.2a2 2 0 0 0 2-1.8L18 8M13 8l1.5-5H18"/>
+            </svg>
+          </div>
+        </div>
 
       </div>
     </section>
